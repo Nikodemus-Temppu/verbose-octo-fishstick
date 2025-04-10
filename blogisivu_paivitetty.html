@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vittu minä tulen – uusi alku</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0e0e0e;
+            color: #e0e0e0;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-image: linear-gradient(to bottom, #d32f2f, #0e0e0e);
+            box-shadow: 0 0 20px rgba(211,47,47,0.7);
+        }
+        h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 4rem;
+            color: #ffeb3b;
+            text-shadow: 2px 2px #d32f2f;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            font-style: italic;
+            opacity: 0.9;
+        }
+        nav {
+            background-color: #1c1c1c;
+            text-align: center;
+            padding: 0.5rem;
+        }
+        nav a {
+            color: #ff9800;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 2rem;
+        }
+        section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #333;
+        }
+        section:last-child {
+            border-bottom: none;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #070707;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+        .blog-entry {
+            background-color: #181818;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+        #blog-form textarea, button {
+            width: 100%;
+            margin-top: 0.5rem;
+            padding: 0.8rem;
+            border-radius: 4px;
+            border: none;
+        }
+        button {
+            background-color: #d32f2f;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🔥 Vittu minä tulen 🔥</h1>
+        <p class="subtitle">Kun elämä lyö kovaa, lyöt kovempaa takaisin.</p>
+    </header>
+    <nav>
+        <a href="#uusi-alku">Uusi alku</a>
+        <a href="#toipuminen">Toipuminen</a>
+        <a href="#burnout">Burnout</a>
+        <a href="#minä-tulen">Minä tulen</a>
+    </nav>
+    <main>
+        <section id="uusi-alku"><h2>Uusi alku</h2><p>Kukaan ei kerro sulle, että uusi alku näyttää aluksi paskalta. Mutta siitäkin selvitään.</p></section>
+        <section id="toipuminen"><h2>Toipuminen</h2><p>Ei mitään Pinterest-höpinää. Rehellistä kipua, verta, hikeä ja kyyneleitä. Mutta voitettu kipu on voimaa.</p></section>
+        <section id="burnout"><h2>Burnout</h2><p>Joskus pitää palaa loppuun, jotta tietää, mitä ei enää halua koskaan tehdä.</p></section>
+        <section id="minä-tulen"><h2>Vittu minä tulen</h2><p>Kun olet käynyt pohjalla, tiedät tasan tarkkaan kuka olet. Ja silloin sinua ei pysäytä enää mikään.</p></section>
+        <section id="paivakirja">
+            <h2>Päivän fiilikset</h2>
+            <form id="blog-form">
+                <textarea id="blog-input" placeholder="Kerro rehellisesti, miltä tänään tuntuu..." required></textarea>
+                <button type="submit">Tallenna 🔥</button>
+            </form>
+            <div id="blog-entries"></div>
+        </section>
+    </main>
+    <footer>© 2025 Feeniks-blogi. Rakennettu sisulla ja vähän huonolla huumorilla.</footer>
+    <script>
+        document.getElementById('blog-form').onsubmit = function(e) {
+            e.preventDefault();
+            let blogInput = document.getElementById('blog-input');
+            let blogEntries = document.getElementById('blog-entries');
+            let entry = document.createElement('div');
+            entry.className = 'blog-entry';
+            entry.innerHTML = `<time>${new Date().toLocaleString('fi-FI')}</time><p>${blogInput.value}</p>`;
+            blogEntries.prepend(entry);
+            blogInput.value = '';
+        };
+    </script>
+</body>
+</html>
